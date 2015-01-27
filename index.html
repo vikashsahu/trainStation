@@ -1,0 +1,41 @@
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	</head>
+
+	<body>
+		<script src="http://momentjs.com/downloads/moment.js"></script>
+
+
+
+
+
+		<div id="rectangle">
+			<div id="title">
+				Vikash's Office Hours for the Week of 
+				<script>
+					var startOfWeek = moment().startOf('isoWeek').format("MMMM Do");
+					document.getElementById("title").innerHTML += " " + startOfWeek;
+				</script>
+			</div>
+			
+			<div id="timeTable">
+				<table class="main">
+						<tr>
+							<th>Monday</th>
+							<th>Wednesday</th>
+							<th>Friday</th>
+						</tr>
+						<tr>
+							<td>None</td>
+							<td>None</td>
+							<td>None</td>
+						</tr>
+				</table>
+			</div>
+
+			
+		</div>
+	</body>
+</html>
