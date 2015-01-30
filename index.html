@@ -1,76 +1,47 @@
 <html>
 
-	<head>
-		<link rel="stylesheet" type="text/css" href="stylesheet.css">
-	</head>
+<head>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<script src="trainStation.js"></script>
+</head>
 
-	<body>
-		<script src="http://momentjs.com/downloads/moment.js"></script>
+<body>
+	<script src="http://momentjs.com/downloads/moment.js"></script>
 
-
-
-
-
-		<div id="rectangle">
-			<div id="title">
-				<a href="http://github.com/vikashsahu">Vikash</a>'s Office Hours for the Week of 
-				<script>
-					var startOfWeek = moment().startOf('isoWeek').format("MMMM Do");
-					document.getElementById("title").innerHTML += " " + startOfWeek;
-				</script>
-			</div>
-			
-			<div id="mainTable">
-				<table id="timeTable">
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-
-				<script>
-					var times = [["Monday","Wednesday","Friday"],[11,11,11],[13,13,13]];
-					var getTimeTable = document.getElementById('timeTable');
-
-					for (var i=0, row; row=getTimeTable.rows[i], i < 1; i++) {
-						for (var j=0, col; col=row.cells[j]; j++) {
-							getTimeTable.rows[i].cells[j].innerHTML = times[i][j];
-						}
-					}
-
-					for (var i=1, row; row=getTimeTable.rows[i]; i++) {
-						for (var j=0, col; col=row.cells[j]; j++) {
-							getTimeTable.rows[i].cells[j].innerHTML = times[i][j] + "-" + (times[i+1][j]-12);
-						}
-					}
-				</script>
-			</div>
-
-			<div id="turnstile">
-				<script>
-					//No trains today
-					if (times[0].indexOf(moment().format("dddd"))===-1) { 
-						document.getElementById("turnstile").innerHTML = "No trains today -- check back tomorrow!";
-					}	
-					else {//it's a day when office hours are held
-						if (moment().hour() < times[1][0])//too early
-							document.getElementById("turnstile").innerHTML = "You're early! The trains haven't arrived yet."
-						else if (moment().hour() >= times[2][0])//too late
-							document.getElementById("turnstile").innerHTML = "The trains have departed already!"
-						else {
-							document.getElementById("turnstile").innerHTML = "The trains are currently boarding! Catch Vikash at 1102 Morrill Hall.";
-						}
-					}
-				</script>
-			</div>
-
-			
+	<div id="rectangle">
+		<div id="title">
+			<a href="https://twitter.com/KashMoneyMafia">Vikash</a>'s Office Hours for the Week of 
+			<script>
+			var startOfWeek = moment().startOf('isoWeek').format("MMMM Do");
+			document.getElementById("title").innerHTML += " " + startOfWeek;
+			</script>
 		</div>
-	</body>
+
+		<div id="mainTable">
+			<table id="timeTable">
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+
+			<script>
+				dispTrains();
+				setInterval(dispTrains, 5000);
+			</script>
+		</div>
+
+		<div id="turnstile">
+			<script>summarize()</script>
+		</div>
+
+
+	</div>
+</body>
 </html>
