@@ -24,16 +24,21 @@ function summarize() {
 		document.getElementById("turnstile").innerHTML = "No trains today -- check back tomorrow!";
 	}	
 	else {//it's a day when office hours are held
-		if (moment().hour() < times[1][0])//too early
-			document.getElementById("turnstile").innerHTML = "You're early! The trains haven't arrived yet."
-		else if (moment().hour() >= times[2][0])//too late
-			document.getElementById("turnstile").innerHTML = "The trains have departed already!"
+		if (moment().hour() < times[1][0]) {//too early
+			document.getElementById("turnstile").innerHTML = "You're early! The trains haven't arrived yet.";
+			document.getElementById('turnstile').innerHTML += "(that means I'm not in my office yet)";
+		}
+		else if (moment().hour() >= times[2][0]){ //too late
+			document.getElementById("cryptic").innerHTML = "The trains have departed already!";
+			document.getElementById("clarity").innerHTML += "<br />(that means you've missed office hours)";
+		}
 		else {
 
 			var boardStr = "Morrill Hall";
 			var boardStrLink = boardStr.link("http://www.umd.edu/CampusMaps/bld_detail.cfm?bld_code=MOR");
 
 			document.getElementById("turnstile").innerHTML = "The trains are currently boarding! Catch Vikash at 1102 " + boardStrLink + ".";
+			document.getElementById("turnstile").innerHTML += "(that means I'm in my office)";
 		}
 	}
 }
