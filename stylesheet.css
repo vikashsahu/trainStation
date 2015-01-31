@@ -2,7 +2,7 @@
 @font-face { font-family: redAlert; src:url('red_alert.ttf'); }
 
 body {
-	background-image: url('train.gif');
+	background-image: url('no_train_animated.gif');
 	background-size: cover;
 }
 
@@ -15,6 +15,22 @@ body {
 	top: 20%;
 }
 
+#ticketStubBg {
+	width: 500px;
+	height: 200px;
+	background-color: rgba(63, 142, 230, 1);
+/*	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;*/
+	border-radius: 20px;
+}
+
+#ticketStubCenter {
+	width: auto;
+	height: 90px;
+	background-color: white;
+	vertical-align: middle;
+}
+
 #title {
 	font-size: 45px;
 	font-family: redAlert;
@@ -23,19 +39,22 @@ body {
 }
 
 table#timeTable {
-	margin: 0 auto 0 auto;
+	margin: 0 auto;
 	font-family: redAlert;
 	text-align: center;
 	font-size: 30px;
 	border-spacing: 20px 5px;
 	background-color: rgba(63, 142, 230, 0.8);
+
+	table-layout: fixed;
+	width: 30%;
 }
 
 #turnstile #cryptic {
 	font-family: redAlert;
 	font-size: 35px;
 	text-align: center;
-	margin: 15px auto 0 auto;
+	margin: 5px auto 0 auto;
 }
 
 #turnstile #clarity {

@@ -2,49 +2,51 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<script src="trainStation.js"></script>
 </head>
 
 <body>
-	<script src="http://momentjs.com/downloads/moment.js"></script>
-
 	<div id="rectangleLarge">
 		<div id="title">
 			<a href="https://twitter.com/KashMoneyMafia">Vikash</a>'s Office Hours for the Week of 
-			<script>
-			var startOfWeek = moment().startOf('isoWeek').format("MMMM Do");
-			document.getElementById("title").innerHTML += " " + startOfWeek;
-			</script>
 		</div>
 
+		<!-- <div id="ticketStubBg">
+			<div id="ticketStubCenter">
+			</div>
+		</div> -->
 
 		<div id="mainTable">
 			<table id="timeTable">
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
 				</tr>
 			</table>
-			
-
-			<script>
-			dispTrains();
-			setInterval(dispTrains, 5000);
-			</script>
 		</div>
 
 		<div id="turnstile">
 			<div id="cryptic"></div>
 			<div id="clarity"></div>
-			<script>summarize()</script>
 		</div>
 
 	</div>
+	<script src="http://momentjs.com/downloads/moment.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="trainStation.js"></script>
+	<script>
+		weekStartDay();
+
+		dispTrains();
+		summarize();
+		setInterval(function() {
+			if (moment().minute() === 0) {
+				summarize();
+			}
+		}, 1000 * 60);//every minute
+	</script>
 </body>
 </html>

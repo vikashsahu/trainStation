@@ -1,8 +1,12 @@
 
-var times = [["Monday","Wednesday","Friday"],[11,11,11],[13,13,13]];
+var times = [["Monday","Saturday"],[11,11],[12,12]];
+
+function weekStartDay() {
+	var startOfWeek = moment().startOf('isoWeek').format("MMMM Do");
+	document.getElementById("title").innerHTML += " " + startOfWeek;
+}
 
 function dispTrains() {
-	console.log('boom');
 	var getTimeTable = document.getElementById('timeTable');
 
 	for (var i=0, row; row=getTimeTable.rows[i], i < 1; i++) {
@@ -27,11 +31,20 @@ function summarize() {
 	else {//it's a day when office hours are held
 		if (moment().hour() < times[1][0]) {//too early
 			document.getElementById("cryptic").innerHTML = "You're early! The trains haven't arrived yet.";
-			document.getElementById('clarity').innerHTML += "(that means I'm not in my office yet)";
+			document.getElementById("clarity").innerHTML = "(that means I'm not in my office yet)";
+			$("body").css("background-image", "url(no_train_animated.gif)");
 		}
 		else if (moment().hour() >= times[2][0]){ //too late
+			console.log('bump at 38');
 			document.getElementById("cryptic").innerHTML = "The trains have departed already!";
-			document.getElementById("clarity").innerHTML += "(that means you've missed office hours)";
+			document.getElementById("clarity").innerHTML = "(that means you've missed office hours)";
+			$("body").css("background-image", "url(depart_animated.gif");
+			//wait
+			setTimeout(
+				function() {
+					$("body").css("background-image", "url(no_train_animated.gif)");		
+				}, 10550);
+			
 		}
 		else {
 
@@ -39,7 +52,8 @@ function summarize() {
 			var boardStrLink = boardStr.link("http://www.umd.edu/CampusMaps/bld_detail.cfm?bld_code=MOR");
 
 			document.getElementById("cryptic").innerHTML = "The trains are currently boarding! Catch Vikash at 1102 " + boardStrLink + ".";
-			document.getElementById("clarity").innerHTML += "(that means I'm in my office)";
+			document.getElementById("clarity").innerHTML = "(that means I'm in my office)";
+			$("body").css("background-image", "url(arrive_animation_stop.gif)");
 		}
 	}
 }
