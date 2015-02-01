@@ -15,6 +15,22 @@ body {
 	top: 20%;
 }
 
+#footer {
+	width: 100%;
+	height: auto;
+	background-color: rgba(211, 211, 211, 0.5);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	bottom: 1%;
+}
+
+#footerText {
+	text-align: center;
+	font-family: redAlert;
+	font-size: 15px;
+}
+
 #ticketStubBg {
 	width: 500px;
 	height: 200px;
