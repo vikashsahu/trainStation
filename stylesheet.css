@@ -12,6 +12,7 @@ body {
 #rectangleLarge {
 	width:100%;
 	height:auto;
+	left: 0;
 	background-color:LightGray;
 	background-color: rgba(211, 211, 211, 0.5);
 	position: absolute;
