@@ -1,5 +1,5 @@
 
-var times = [["Monday","Saturday"],[11,11],[12,12]];
+var times = [["Monday","Wednesday"],[11,11],[13,13]];
 
 function weekStartDay() {
 	var startOfWeek = moment().startOf('isoWeek').format("MMMM Do");
@@ -25,7 +25,7 @@ function dispTrains() {
 function summarize() {
 	//No trains today
 	if (times[0].indexOf(moment().format("dddd"))===-1) { 
-		document.getElementById("cryptic").innerHTML = "No trains today -- check back tomorrow!";
+		document.getElementById("cryptic").innerHTML = "The trains aren't running right now!";
 		document.getElementById("clarity").innerHTML = "(that means no office hours today)";
 	}	
 	else {//it's a day when office hours are held
@@ -38,16 +38,14 @@ function summarize() {
 			console.log('bump at 38');
 			document.getElementById("cryptic").innerHTML = "The trains have departed already!";
 			document.getElementById("clarity").innerHTML = "(that means you've missed office hours)";
-			$("body").css("background-image", "url(depart_animated.gif");
+			$("body").css("background-image", "url(depart_animated.gif)");
 			//wait
 			setTimeout(
 				function() {
 					$("body").css("background-image", "url(no_train_animated.gif)");		
 				}, 10550);
-			
 		}
 		else {
-
 			var boardStr = "Morrill Hall";
 			var boardStrLink = boardStr.link("http://www.umd.edu/CampusMaps/bld_detail.cfm?bld_code=MOR");
 
