@@ -66,9 +66,12 @@ table#timeTable {
 	border-spacing: 20px 5px;
 	background-color: rgba(63, 142, 230, 0.8);
 
-	
-	width: 30%;
-	min-width: 20%;
+}
+
+table#timeTable td {
+	max-width: 140px;
+	width: 80px;
+	min-width: 80px;
 }
 
 #turnstile #cryptic {
