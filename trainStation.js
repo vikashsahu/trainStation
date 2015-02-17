@@ -35,14 +35,13 @@ function summarize() {
 			$("body").css("background-image", "url(no_train_animated.gif)");
 		}
 		else if (moment().hour() >= times[2][0]){ //too late
-			console.log('bump at 38');
 			document.getElementById("cryptic").innerHTML = "The trains have departed already!";
 			document.getElementById("clarity").innerHTML = "(that means you've missed office hours)";
 			$("body").css("background-image", "url(depart_animated.gif)");
 			//wait
 			setTimeout(
 				function() {
-					$("body").css("background-image", "url(no_train_animated.gif)");		
+					$("body").css("background-image", "url(no_train_animated.gif)");
 				}, 10550);
 		}
 		else {

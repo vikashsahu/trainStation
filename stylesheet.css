@@ -3,6 +3,7 @@
 
 body {
 	background: url('no_train_animated.gif') no-repeat center center fixed;
+	transition: all 500ms;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
