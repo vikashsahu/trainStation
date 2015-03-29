@@ -1,5 +1,6 @@
 
-var times = [["Monday","Wednesday"],[11,11],[13,13]];
+//var times = [["Monday","Wednesday"],[11,11],[13,13]];
+var times = [["Monday"],[11],[14]]; 
 
 function weekStartDay() {
 	var startOfWeek = moment().startOf('isoWeek').format("MMMM Do");
